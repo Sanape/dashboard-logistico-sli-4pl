@@ -146,7 +146,7 @@ export default function Swimlane({ activeStep, onStepClick }: SwimlaneProps) {
               </StepCard>
               
               <div className="bg-red-50 border border-red-200 border-dashed p-2 rounded text-[10px] text-red-600 text-center leading-tight w-full max-w-[260px]">
-                &quot;Si no saturan capacidad, se suman días siguientes&quot;
+                &quot;Si saturan capacidad, se suman días siguientes&quot;
               </div>
             </div>
 
