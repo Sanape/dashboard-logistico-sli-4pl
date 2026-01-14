@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Icon from './Icon';
 
 export default function Header({
@@ -16,12 +17,26 @@ export default function Header({
         <div className="h-8 w-px bg-gray-300 hidden sm:block"></div>
         <div className="hidden sm:flex items-center space-x-4">
           <div className="flex items-center space-x-2">
+            <Image 
+              src="/sliLogo.png" 
+              alt="Grupo SLI" 
+              width={40}
+              height={40}
+              className="object-contain opacity-90 hover:opacity-100 transition" 
+            />
             <span className="text-sm font-semibold text-gray-600">
               Grupo SLI
             </span>
           </div>
           <span className="text-gray-400">+</span>
           <div className="flex items-center space-x-2">
+            <Image 
+              src="/akzoLogo.png" 
+              alt="AkzoNobel" 
+              width={40}
+              height={40}
+              className="object-contain opacity-90 hover:opacity-100 transition" 
+            />
             <span className="text-sm font-semibold text-gray-600">
               AkzoNobel
             </span>
