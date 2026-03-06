@@ -4,6 +4,7 @@ import StepCard from "./StepCard";
 import Icon from "./Icon";
 import InfoModal from "./InfoModal";
 import { infoPointsData, InfoPointData } from "@/data/infoPoints";
+import alertaImg from "@/assests/alerta.png";
 
 interface SwimlaneProps {
   activeStep: number | null;
@@ -11,7 +12,17 @@ interface SwimlaneProps {
 }
 
 // Componente auxiliar definido fuera para evitar re-renders innecesarios
-const InfoButton = ({ icon, onClick, className = "" }: { icon: string, onClick: () => void, className?: string }) => (
+const InfoButton = ({
+  icon,
+  imageSrc,
+  onClick,
+  className = "",
+}: {
+  icon?: string;
+  imageSrc?: string;
+  onClick: () => void;
+  className?: string;
+}) => (
   <button 
     onClick={(e) => { 
       e.stopPropagation(); 
@@ -20,7 +31,11 @@ const InfoButton = ({ icon, onClick, className = "" }: { icon: string, onClick: 
     className={`absolute z-30 w-10 h-10 bg-white border-2 border-orange-500 text-orange-500 rounded-full flex items-center justify-center shadow-lg hover:bg-orange-500 hover:text-white transition-all transform hover:scale-110 ${className}`}
     title="Ver información detallada"
   >
-    <Icon name={icon} className="font-bold text-lg" />
+    {imageSrc ? (
+      <img src={String(imageSrc)} alt="info" className="w-10 h-10 object-cover" />
+    ) : (
+      icon && <Icon name={icon} className="font-bold text-lg" />
+    )}
   </button>
 );
 
@@ -207,11 +222,20 @@ export default function Swimlane({ activeStep, onStepClick }: SwimlaneProps) {
                 <p className="text-xs text-gray-500">Con turnos de playa</p>
               </StepCard>
               {/* Step 11 */}
-              <StepCard stepId={11} activeStep={activeStep} onClick={onStepClick} className="w-full max-w-[260px] p-4 bg-white border-2 border-gray-800 rounded-lg relative">
-                <div className="absolute -left-3 top-1/2 -translate-y-1/2 bg-gray-200 text-[10px] px-1 rounded border border-gray-300">12:00</div>
-                <span className="font-bold text-sm block">Confirmación</span>
-                <p className="text-xs text-gray-500">del plan de despachos</p>
-              </StepCard>
+              <div className="relative w-full max-w-[260px]">
+                <StepCard stepId={11} activeStep={activeStep} onClick={onStepClick} className="w-full p-4 bg-white border-2 border-gray-800 rounded-lg relative">
+                  <div className="absolute -left-3 top-1/2 -translate-y-1/2 bg-gray-200 text-[10px] px-1 rounded border border-gray-300">12:00</div>
+                  <span className="font-bold text-sm block">Confirmación unidades </span>
+                  <p className="text-xs text-gray-500">Establecer un plan de acción para las unidades NO confirmadas antes de las 12:00 horas.</p>
+                </StepCard>
+
+                <InfoButton
+                  imageSrc={alertaImg.src}
+                  onClick={() => handleInfoClick("unidadesNoConfirmadas")}
+                  className="-right-5 top-1/2 -translate-y-1/2 bg-red-50 border-red-500 text-red-600 hover:bg-red-500"
+                />
+              </div>
+              
             </div>
 
             <div className="h-full flex flex-col justify-center items-center"><Icon name="arrow_forward" className="text-gray-400" /></div>
