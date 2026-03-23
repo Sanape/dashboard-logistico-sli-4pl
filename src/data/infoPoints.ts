@@ -53,7 +53,7 @@ export const infoPointsData: Record<string, InfoPointData> = {
     id: "unidadesNoConfirmadas",
     title: "Unidades no confirmadas a tiempo",
     icon: "priority_high",
-    imageSrc: "/alerta.png",
+    imageSrc: "/ConfirmadasModal.png",
     paragraphs: [
       "Antes de las 12:00 horas del Día N-2 es crítico contar con la confirmación de todas las unidades asignadas al plan de despachos.",
       "Para las unidades que no se confirmen a tiempo, se debe activar un plan de acción: reasignar viajes, buscar unidades alternativas o reprocesar el ruteo para no afectar el cumplimiento de entregas."

@@ -82,7 +82,7 @@ export default function InfoModal({ isOpen, onClose, data }: InfoModalProps) {
           <img 
             src={data.imageSrc} 
             alt={data.title} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
           {/* Overlay gradiente para estilo */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-l opacity-30"></div>
